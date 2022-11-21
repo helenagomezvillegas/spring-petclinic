@@ -31,7 +31,7 @@ jobs:
     - name: Execute Gradle build
       run: ./gradlew build
 
-    - name: Login to github register
+    - name: Login to Github register
       uses: docker/login-action@v1
       with:
         registry: ${{ env.REGISTRY }}
@@ -40,6 +40,13 @@ jobs:
 
     - name: Build Docker images
       run: docker build . --file Dockerfile --tag petclinic
+
+    - name:  Run Docker images
+      run: docker run ghcr.io/helenagomezvillegas/petclinic:latest
+
+    - name:  publish Docker images
+      run: docker push ghcr.io/helenagomezvillegas/petclinic:latest
+
 
 
 
