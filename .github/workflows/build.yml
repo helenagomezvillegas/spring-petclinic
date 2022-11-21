@@ -39,10 +39,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build Docker images
-      run: docker build . --file Dockerfile --tag petclinic
+      run: docker build . --file Dockerfile --tag petclinic:latest
 
-    - name: Publish Docker images
-      run: docker push ghcr.io/helenagomezvillegas/petclinic:latest
+    - name: Run Docker images
+      run: docker run -d -p 8080:8080 ghcr.io/helenagomezvillegas/petclinic:latest
 
 
 
