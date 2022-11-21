@@ -23,3 +23,10 @@ jobs:
 
     - name: Execute Gradle build
       run: ./gradlew build
+
+    - name: Build Docker images
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+
+
+
+
