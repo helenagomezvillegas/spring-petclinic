@@ -41,10 +41,7 @@ jobs:
     - name: Build Docker images
       run: docker build . --file Dockerfile --tag petclinic
 
-    - name:  Run Docker images
-      run: docker run ghcr.io/helenagomezvillegas/petclinic:latest
-
-    - name:  publish Docker images
+    - name: Publish Docker images
       run: docker push ghcr.io/helenagomezvillegas/petclinic:latest
 
 
